@@ -6,36 +6,28 @@ import "./CourseInput.css";
 const FormControl = styled.div`
   margin: 0.5rem 0;
 
-& label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
+  & label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: ${props => props.invalid ? 'red' : 'black'};
+  }
 
-& input {
-  display: block;
-  width: 100%;
-  border: 1px solid #ccc;
-  font: inherit;
-  line-height: 1.5rem;
-  padding: 0 0.25rem;
-}
+  & input {
+    display: block;
+    width: 100%;
+    border: 1px solid ${props => props.invalid ? 'red' : '#ccc'};
+    background: ${props => props.invalid ? 'salmon' : '#f5eff3'};
+    font: inherit;
+    line-height: 1.5rem;
+    padding: 0 0.25rem;
+  }
 
-& input:focus {
-  outline: none;
-  background: #f5eff3;
-  border-color: #86637b;
-}
-
-&.invalid input {
-  border-color: red;
-  background: salmon;
-}
-
-&.invalid label {
-  color: red;
-}
-
+  & input:focus {
+    outline: none;
+    background: #f5eff3;
+    border-color: #86637b;
+  }
 `;
 
 const CourseInput = (props) => {
@@ -58,12 +50,17 @@ const CourseInput = (props) => {
     props.onAddGoal(enteredValue);
   };
 
+  // // with div
   // `` is a in-built javascript for templating. It will be treating as normal string and we can add JS inside $
   // we are adding dinamically the ccs class by using  isValid as a condition
   // <div className={`form-control ${!isValid ? "invalid" : ""}`}></div>
+  
+  // // with FormControl controlling the css output
+  // <FormControl className={!isValid && 'invalid'}>
+
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormControl className={!isValid && 'invalid'}>
+      <FormControl invalid={!isValid}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </FormControl>
