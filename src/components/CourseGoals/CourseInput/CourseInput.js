@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../../UI/Button/Button";
 import "./CourseInput.css";
 
+// props here is coming from the FormControl down below. It is very useful for dinamically styling.
 const FormControl = styled.div`
   margin: 0.5rem 0;
 
