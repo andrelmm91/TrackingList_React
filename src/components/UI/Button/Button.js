@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 // .button is a method from styled.
+// by using Styled package, we dont use a CSS file, but paste here. 
 const Button = styled.button`
     font: inherit;
     padding: 0.5rem 1.5rem;
