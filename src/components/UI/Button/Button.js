@@ -2,10 +2,6 @@
 import React from 'react';
 import styles from './Button.module.css'
 
-
-
-
-
 // // // this way we use Styled-component package
 // import styled from "styled-components";
 // // .button is a method from styled.
